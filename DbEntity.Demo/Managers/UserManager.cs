@@ -99,12 +99,12 @@ public class UserManager : User
     public override async Task<bool> DeleteAsync()
     {
         using var connection = await _dbManager.GetConnectionAsync();
-        return await connection.ExecuteAsync(DELETE_SQL, new { Id = Id }) > 0;
+        return await connection.ExecuteAsync(DELETE_SQL, new { Id }) > 0;
     }
 
     public override bool Delete()
     {
         using var connection = _dbManager.GetConnection();
-        return connection.Execute(DELETE_SQL, new { Id = Id }) > 0;
+        return connection.Execute(DELETE_SQL, new { Id }) > 0;
     }
 }
